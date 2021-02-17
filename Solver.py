@@ -33,13 +33,6 @@ def check_grid(grid, size, boxes):
     return True
 
 
-# function to take CSV file and convert it too a grid
-def read_csv(path_to_csv):
-    grid = pandas.read_csv(path_to_csv, header=None)
-    grid.fillna(0, inplace=True)
-    return grid.to_numpy()
-
-
 # Solve the grid (non square)
 def solve_grid(path, box_height, box_width):
     # get CSV
@@ -53,8 +46,6 @@ def solve_grid(path, box_height, box_width):
     if box_height*box_width != size:
         print('Some message about height and width not correct')
         quit()
-
-    # TODO: add initial check to see if solvable
 
     # Do to solving
     solution = solving_algorithm(grid, size, box_height, box_width)
